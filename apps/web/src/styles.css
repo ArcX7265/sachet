@@ -19,3 +19,9 @@
 .signin-card form{display:grid;gap:18px;margin:24px 0}.signin-card label{display:grid;gap:8px;font-weight:600}
 .signin-card input{width:100%;padding:12px;border:1px solid #ccd6cd;border-radius:8px;font:inherit}
 .signin-card input:focus-visible{outline:2px solid #27765b;outline-offset:2px}.signin-card .button{justify-content:center}
+
+.signin-demo-credentials{display:grid;gap:12px;margin:0;padding:18px 20px;border:1px solid #e1e8dd;border-radius:10px;background:#f6f8f3;font-size:16px;line-height:1.5}
+.signin-demo-credentials>div{display:grid;grid-template-columns:135px minmax(0,1fr);gap:12px;align-items:baseline}
+.signin-demo-credentials dt{color:#617065;font-weight:500}
+.signin-demo-credentials dd{margin:0;color:#253832;font-weight:700;overflow-wrap:anywhere}
+@media(max-width:440px){.signin-demo-credentials{padding:16px}.signin-demo-credentials>div{grid-template-columns:1fr;gap:2px}}

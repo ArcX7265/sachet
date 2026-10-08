@@ -18,6 +18,6 @@ export function SignIn({onSignIn,notice}:{onSignIn:(account:AccountSession)=>Pro
   <form onSubmit={submit}><label>Username<input autoComplete="username" autoCapitalize="none" spellCheck={false} required maxLength={120} value={username} onChange={e=>setUsername(e.target.value)}/></label>
    <label>Password<input type="password" autoComplete="current-password" required maxLength={256} value={password} onChange={e=>setPassword(e.target.value)}/></label>
    <button className="button primary" disabled={busy} type="submit">{busy?<LoaderCircle size={17} className="spin"/>:null}{busy?'Signing in…':'Sign in'}</button>
-  </form><p className="field-help">Demo username: <strong>evaluator</strong><br/>Demo password: <strong>evaluator123456</strong></p>
+  </form><dl className="signin-demo-credentials" aria-label="Evaluator demo credentials"><div><dt>Demo username</dt><dd>evaluator</dd></div><div><dt>Demo password</dt><dd>evaluator123456</dd></div></dl>
  </section></main>
 }
