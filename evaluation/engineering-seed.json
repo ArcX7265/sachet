@@ -1,0 +1,235 @@
+{
+  "schema_version": 1,
+  "name": "Sachet English engineering seed",
+  "provenance": "Synthetic cases authored for this project. No real conversations, identities, accounts, or outcomes are represented.",
+  "purpose": "Exercise observable-evidence handling in an early prototype; not a representative benchmark or an estimate of real-world detection accuracy.",
+  "split_policy": "Ten development and six validation journeys. Validation is an engineering review set, not a statistically independent or blinded held-out benchmark. All cases were authored together. Derivatives must stay with their source journey.",
+  "input_allowlist": ["text", "title", "source"],
+  "forbidden_outputs": ["A verified-safe verdict", "A fabricated source quotation", "A claim that a displayed amount or sender identity was independently verified", "A claim that a transaction was automatically blocked"],
+  "cases": [
+    {
+      "id": "dev_01",
+      "split": "development",
+      "pair_group": "withdrawal_condition",
+      "slice": ["conditional_payment", "changed_terms", "same_transaction"],
+      "text": "Monday, service contact: Your INR 20000 withdrawal W42 needs no further payment.\nTuesday, same service contact: To release withdrawal W42, transfer a separate INR 2000 verification deposit first.\nUser: I have not sent the deposit.",
+      "expectation": {
+        "scenario_type": "concerning",
+        "allowed_statuses": ["concern"],
+        "observable_basis": "The same named withdrawal is first described as requiring no further payment and later conditioned on another transfer.",
+        "required_caution": "The submitted claims do not establish that the withdrawal or contact is real.",
+        "must_not_infer": ["The user already paid the deposit", "An independently verified investment balance"]
+      }
+    },
+    {
+      "id": "dev_02",
+      "split": "development",
+      "pair_group": "withdrawal_condition",
+      "slice": ["legitimate_lookalike", "negation", "payment_direction"],
+      "text": "Statement note: Withdrawal W51 is INR 20000 before the disclosed INR 20 service charge. The charge is deducted from the proceeds; do not transfer a separate deposit.\nUser: My expected payout is INR 19980. Is this note asking me to send more money?",
+      "expectation": {
+        "scenario_type": "legitimate_lookalike",
+        "allowed_statuses": ["limited", "clarify"],
+        "observable_basis": "The note explicitly says the charge is deducted and does not ask for an additional transfer.",
+        "required_caution": "The document and actual service remain unverified.",
+        "must_not_infer": ["An upfront transfer was requested", "A verified-safe provider"]
+      }
+    },
+    {
+      "id": "dev_03",
+      "split": "development",
+      "pair_group": "credential_request",
+      "slice": ["negation", "protective_advice"],
+      "text": "Support notice: Never share your OTP or password with anyone, including our support staff. We will not ask you to send a verification code in this chat.\nUser: This is the complete message I received.",
+      "expectation": {
+        "scenario_type": "legitimate_lookalike",
+        "allowed_statuses": ["limited", "clarify"],
+        "observable_basis": "The text advises against sharing credentials and explicitly denies requesting them.",
+        "required_caution": "Protective wording does not authenticate the sender.",
+        "must_not_infer": ["The sender asked the user to disclose an OTP"]
+      }
+    },
+    {
+      "id": "dev_04",
+      "split": "development",
+      "pair_group": "credential_request",
+      "slice": ["direct_request", "credential_request"],
+      "text": "Contact: I am helping resolve the refund. Send me the one-time password you receive so I can finish it for you.\nUser: I have not shared a code.",
+      "expectation": {
+        "scenario_type": "concerning",
+        "allowed_statuses": ["concern"],
+        "observable_basis": "The contact explicitly asks the user to disclose a one-time password.",
+        "required_caution": "The contact's identity and claimed refund have not been verified.",
+        "must_not_infer": ["A code has already been shared", "The contact is a confirmed criminal"]
+      }
+    },
+    {
+      "id": "dev_05",
+      "split": "development",
+      "pair_group": "reported_speech",
+      "slice": ["reported_speech", "quoted_request"],
+      "text": "User: A caller told me, 'Send me your bank password to restore access.' I ended the call and shared no credentials. This is my report of what happened, not a request to you.",
+      "expectation": {
+        "scenario_type": "concerning",
+        "allowed_statuses": ["concern"],
+        "observable_basis": "The user reports that another person requested their password. This is relevant reported evidence of a credential request.",
+        "required_caution": "Attribute the request to the reported caller; the underlying call is not independently available.",
+        "must_not_infer": ["The user is requesting a password", "The user disclosed a password"]
+      }
+    },
+    {
+      "id": "dev_06",
+      "split": "development",
+      "pair_group": "reported_speech",
+      "slice": ["quoted_awareness", "hypothetical", "speaker_attribution"],
+      "text": "Training handout: An example of a dangerous request is 'Send me your bank password to restore access.' This sentence is a fictional example in an awareness exercise. No one has made this request to the reader.",
+      "expectation": {
+        "scenario_type": "legitimate_lookalike",
+        "allowed_statuses": ["limited", "clarify"],
+        "observable_basis": "The credential request is explicitly a hypothetical training quotation, not a reported live demand.",
+        "required_caution": "The content alone does not prove anything about unrelated financial interactions.",
+        "must_not_infer": ["A live credential request was made to the user", "A user is currently targeted by the quoted speaker"]
+      }
+    },
+    {
+      "id": "dev_07",
+      "split": "development",
+      "pair_group": "transaction_linkage",
+      "slice": ["unrelated_invoices", "same_amount", "different_transactions"],
+      "text": "Store contact, order A: Your INR 2000 purchase is fully paid. No additional payment is due for order A.\nClub administrator, membership B: Your annual membership invoice B is INR 2000, payable by Friday.\nUser: These are two different organizations and two separate transactions.",
+      "expectation": {
+        "scenario_type": "legitimate_lookalike",
+        "allowed_statuses": ["limited", "clarify"],
+        "observable_basis": "An explicit user statement and distinct identifiers separate the two transactions despite a repeated amount.",
+        "required_caution": "The user's transaction distinction is supplied context, not independent authentication of either organization.",
+        "must_not_infer": ["The store changed the terms of order A", "The membership fee is a condition for releasing order A"]
+      }
+    },
+    {
+      "id": "dev_08",
+      "split": "development",
+      "pair_group": "transaction_linkage",
+      "slice": ["missing_context", "ambiguous_request"],
+      "text": "Contact: Please complete the INR 2000 payment today.\nUser: This is the only message I have supplied. I have not said what the payment is for.",
+      "expectation": {
+        "scenario_type": "unresolved",
+        "allowed_statuses": ["clarify", "limited"],
+        "observable_basis": "An amount and deadline are present, but the purpose, relationship, and preceding agreement are unknown.",
+        "required_caution": "Ask about the purpose or preceding agreement if it changes the assessment.",
+        "must_not_infer": ["A withdrawal exists", "Payment terms changed", "The payment is definitely safe or fraudulent"]
+      }
+    },
+    {
+      "id": "dev_09",
+      "split": "development",
+      "pair_group": "revision_chronology",
+      "slice": ["missing_chronology", "missing_linkage"],
+      "text": "Undated screenshot A, unknown contact: No fee is required.\nUndated screenshot B, unknown contact: A service charge is required.\nUser: The timestamps and transaction references are cropped. I do not know which came first or whether both refer to the same service.",
+      "expectation": {
+        "scenario_type": "unresolved",
+        "allowed_statuses": ["clarify", "limited"],
+        "observable_basis": "The available messages differ, but neither their chronology nor their shared subject is established.",
+        "required_caution": "Preserve uncertainty about order and transaction linkage.",
+        "must_not_infer": ["The contact introduced a new fee later", "The same transaction was discussed twice"]
+      }
+    },
+    {
+      "id": "dev_10",
+      "split": "development",
+      "pair_group": "revision_chronology",
+      "slice": ["independent_correction", "retraction", "amount_interpretation"],
+      "text": "User, initial note: I thought the invoice was INR 2000.\nUser, correction after reading the full invoice: The first number was a quantity. The printed total is INR 200, and the seller has always requested INR 200. Nobody changed the amount or asked for another payment.\nSeller: The total for this purchase is INR 200.",
+      "expectation": {
+        "scenario_type": "legitimate_lookalike",
+        "allowed_statuses": ["limited", "clarify"],
+        "observable_basis": "A clearly attributed correction resolves the user's earlier amount interpretation; there is no observed seller escalation.",
+        "required_caution": "A corrected amount does not authenticate the seller or settle unrelated risks.",
+        "must_not_infer": ["The seller raised the amount", "The old amount remains a current demand", "A dynamic correction API has been validated by this static case"]
+      }
+    },
+    {
+      "id": "val_01",
+      "split": "validation",
+      "pair_group": "recovery_terms",
+      "slice": ["consistent_conditions", "conditional_payment", "recovery_claim"],
+      "text": "User: I lost money in an earlier incident.\nNew contact: I can recover the full amount. My condition is a separate recovery deposit before I return the funds.\nUser: You have asked for the same deposit since the first message. I have not paid it.",
+      "expectation": {
+        "scenario_type": "concerning",
+        "allowed_statuses": ["concern", "clarify"],
+        "observable_basis": "An unverified recovery claim is linked to an upfront payment; the concern does not depend on conditions changing.",
+        "required_caution": "Do not assert that the earlier loss or promised recovery has been independently confirmed.",
+        "must_not_infer": ["The contact changed the agreed conditions", "Recovery is guaranteed"]
+      }
+    },
+    {
+      "id": "val_02",
+      "split": "validation",
+      "pair_group": "recovery_terms",
+      "slice": ["legitimate_lookalike", "disclosed_fee", "no_guarantee"],
+      "text": "Consultation quote: The fixed consultation fee is INR 500 for reviewing your records. This is payment for the appointment, not a deposit to release recovered money. We cannot promise recovery and hold none of your funds.\nUser: I requested this quote. I have not independently checked the provider yet.",
+      "expectation": {
+        "scenario_type": "legitimate_lookalike",
+        "allowed_statuses": ["limited", "clarify"],
+        "observable_basis": "The text distinguishes a disclosed consultation fee from a payment to release claimed funds and makes no recovery guarantee.",
+        "required_caution": "The provider is explicitly unverified; absence of a supported concern is not authentication.",
+        "must_not_infer": ["Recovered money is being withheld", "The provider has been verified", "All advance fees are fraudulent"]
+      }
+    },
+    {
+      "id": "val_03",
+      "split": "validation",
+      "pair_group": "screen_access",
+      "slice": ["reported_speech", "access_request", "pending_action"],
+      "text": "User: A caller claiming to be refund support told me, 'Install this remote access app and show me your banking screen so I can complete the refund.' I have not installed anything. This is my description of the call.",
+      "expectation": {
+        "scenario_type": "concerning",
+        "allowed_statuses": ["concern", "clarify"],
+        "observable_basis": "The submitted report describes a request for remote access and a banking screen in connection with a claimed refund.",
+        "required_caution": "Identify this as a user-reported request, not an independently captured call or a verified support identity.",
+        "must_not_infer": ["Software has already been installed", "Sachet monitored a live call", "The user is asking Sachet for access"]
+      }
+    },
+    {
+      "id": "val_04",
+      "split": "validation",
+      "pair_group": "screen_access",
+      "slice": ["hypothetical", "quoted_awareness", "negation"],
+      "text": "Awareness session transcript: If someone says 'install a remote access app and show your banking screen to receive a refund', stop and independently verify the request. This is an invented classroom example. No refund or installation is underway.",
+      "expectation": {
+        "scenario_type": "legitimate_lookalike",
+        "allowed_statuses": ["limited", "clarify"],
+        "observable_basis": "The concerning sentence is explicitly an invented example inside protective advice.",
+        "required_caution": "The content does not describe an actual ongoing request to this user.",
+        "must_not_infer": ["The reader was asked to install software", "A banking screen is currently shared"]
+      }
+    },
+    {
+      "id": "val_05",
+      "split": "validation",
+      "pair_group": "local_help",
+      "slice": ["direct_access_request", "secrecy", "deadline"],
+      "text": "Contact: To stop your account restriction, give me remote control of your phone while you open the banking app. Keep our conversation private and do this before today's deadline.\nUser: I have not granted control.",
+      "expectation": {
+        "scenario_type": "concerning",
+        "allowed_statuses": ["concern"],
+        "observable_basis": "A direct request for remote control is tied to banking access and a threatened restriction.",
+        "required_caution": "The contact's authority and claimed restriction remain unverified.",
+        "must_not_infer": ["The contact already controls the device", "The deadline is independently confirmed"]
+      }
+    },
+    {
+      "id": "val_06",
+      "split": "validation",
+      "pair_group": "local_help",
+      "slice": ["negation", "self_service", "legitimate_lookalike"],
+      "text": "Help article: Open your banking app yourself to read the statement. Do not give remote control of your phone to a caller or share your banking screen. This article provides instructions only; there is no remote support session or payment request.",
+      "expectation": {
+        "scenario_type": "legitimate_lookalike",
+        "allowed_statuses": ["limited", "clarify"],
+        "observable_basis": "The article describes self-service and explicitly advises against remote access or screen sharing.",
+        "required_caution": "Self-service guidance does not establish the authenticity of the article's publisher.",
+        "must_not_infer": ["The article asks for remote control", "The user is making a payment", "The publisher is authenticated"]
+      }
+    }
+  ]
+}

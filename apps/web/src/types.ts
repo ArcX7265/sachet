@@ -1,0 +1,10 @@
+export type Role = 'user' | 'analyst' | 'admin';
+export type Evidence = {event_id:string;quote:string;start:number;end:number};
+export type Concern = {id:string;description:string;evidence:Evidence[];next_action:string;limitations:string[]};
+export type Assessment = {case_revision:number;bundle_version:string;processing_status:string;evidence_sufficiency:string;response:'explain'|'clarify'|'warn';headline:string;summary:string;concerns:Concern[];clarification:string|null;next_action:string;limitations:string[];engine:string;change_summary:string};
+export type CaseEvent = {id:string;text:string;source_type:string;received_at:string;observed_at:string|null;supersedes_id:string|null;active:boolean};
+export type Case = {id:string;title:string;goal:string;mode:'local'|'cloud';data_class:string;provider:string|null;revision:number;created_at:string;updated_at:string;retention_until:string;events:CaseEvent[];assessment:Assessment|null;history:Assessment[];alerts:{id:string;concern_id:string;revision:number;description:string;acknowledged:boolean;active?:boolean;created_at:string}[];contributions:{id:string;candidate_id:string;created_at:string}[]};
+export type Health = {status:string;demo_mode:boolean;engine:string;active_bundle:string;capabilities:{local_rules:boolean;cloud:Record<string,{configured:boolean;model:string}>;private_cloud:boolean;payment_test:{configured:boolean};live_handoff:boolean};limitations:string[]};
+export type Payment = {id:string;case_id:string;digest:string;case_revision:number;payee:string;amount:string|null;currency:string;note:string|null;display_name:string|null;limitations:string[];mode:string;status:string};
+export type Candidate = {id:string;status:string;title?:string;summary?:string;report_count?:number;reports?:Record<string,unknown>[];pattern?:Record<string,unknown>;reviews?:Record<string,unknown>[];[key:string]:unknown};
+export type Update = {id:string;status:string;[key:string]:unknown};

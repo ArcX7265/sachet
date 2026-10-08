@@ -6,9 +6,50 @@ Sachet is a planned financial-safety product that follows how a suspicious inter
 
 The project is being developed for **RAKSHAM at IIT Delhi**, addressing **Statement 2: AI-driven scam pattern recognition**.
 
-> **Current status:** Planning and specification. This repository contains the implementation plan and this README. Application code, runnable services, model benchmarks, and verified integrations have not yet been added. Capabilities described below are planned unless explicitly identified otherwise.
+> **Current status:** Local application implementation. The web interface and API implement the case-assessment and review flows. See [build status](./docs/build-status.md) for tested capabilities and external integration requirements. The detailed product specification below describes the full target; a planned capability is not a validated deployment claim.
 
 The detailed engineering specification is in [implementation.md](./implementation.md). It defines the contracts, acceptance gates, risk controls, evaluation requirements, and submission mapping that guide development.
+
+## Run the application
+
+Requirements: Node.js 22 or later and Python 3.11 or later. From the `sachet` project folder:
+
+```powershell
+npm run setup
+npm run dev
+```
+
+Open **http://127.0.0.1:5173**. API documentation is available at **http://127.0.0.1:8000/docs**. Keep the process running while using the app; Ctrl+C stops both services. Setup creates a Python virtual environment, installs the API dependencies and installs the locked web dependencies. The development launcher binds both services to loopback and enables the explicitly labelled local demonstration roles.
+
+The app works without external credentials using its limited, inspectable English pattern baseline. Choose a synthetic demonstration or create a case, then add evidence and inspect the quoted reasons. An empty finding does not establish safety. Cloud models require explicit configuration and are never silently substituted for the local method.
+
+```powershell
+npm test
+npm run evaluate
+npm run build
+```
+
+Tests exercise engineering invariants. The evaluation command replays 40 AI-authored synthetic journeys through latest-message and available-context deterministic rules and writes [the engineering report](./evaluation/reports/engineering-results.md). This is a developer-visible regression collection, not a measured real-world detection rate. Cloud-model and research contribution comparisons remain unmeasured.
+
+### Configuration
+
+Copy `.env.example` to `.env` only when configuring optional providers or the gateway. Supply credentials locally; never put keys in chat, client code or Git. Select a compatible free-account model explicitly. Public/synthetic content can be submitted to a configured cloud route; private financial content remains blocked from that route. Provider availability and account billing must be verified separately.
+
+The local database is `data/sachet.sqlite3` and is ignored by Git. Local demo sessions are stored in browser session storage. Demo role switching is for local testing only. Hosted deployments use PostgreSQL and operator-provisioned pilot accounts with assigned roles, expiring sessions and sign-out.
+
+### Deploy on Vercel
+
+Follow [the Vercel deployment guide](./docs/deployment-vercel.md) to initialize PostgreSQL, provision accounts and configure the frontend and FastAPI projects. Deployment configuration, protected scheduled cleanup and a PostgreSQL regression suite are included. A live deployment still requires your database connection and Vercel project environment settings.
+
+### Additional entry points
+
+- [Android companion](./apps/android/README.md): share receiver, local image processing, notification controls and API configuration. Consult its capability notes before claiming device support.
+- [Demo runbook](./docs/demo-runbook.md): consumer, correction, payment and analyst journeys.
+- [Build status](./docs/build-status.md): implementation, validation and external dependencies.
+- [Data register](./docs/data-register.md): provenance and evaluation limits.
+- [Model readiness](./docs/model-benchmark.md): provider protocol tests and remaining quality checks.
+
+Docker development files are in `infra/`. Run `docker compose -f infra/compose.yaml up --build` where Docker is available. This is a local development configuration, with SQLite persistence and a Vite development server, not a production deployment.
 
 ## Contents
 
@@ -80,18 +121,18 @@ A participating payment provider is a possible integration stakeholder. A descri
 
 | Capability | Intended behavior | Status |
 | --- | --- | --- |
-| Adaptive intake | Accept selected text/images and request missing context only when it matters | Planned |
-| Evidence extraction | Record statements, amounts, requested actions, and source references | Planned |
-| Case history | Connect related evidence, retain uncertainty, and support corrections | Planned |
-| Concern assessment | Produce a specific, supported concern and an appropriate response | Planned; approach to be benchmarked |
-| Clarification | Ask a reviewed question when its answer could change the assessment | Planned |
-| Case-level alerts | Avoid repeated interruptions for unchanged evidence while recognizing material changes | Planned |
-| Android sharing | Receive user-selected content through supported share actions | Planned; device validation required |
-| Notification access | Process available events from user-selected sources with permission | Planned; coverage validation required |
-| Payment-request checking | Relate QR/link details to the conversation before an intentional handoff | Planned |
-| Gateway sandbox | Verify actual test-mode order and payment events | Planned; provider account required |
-| Workflow discovery | Present candidate variations with supporting and conflicting evidence | Planned |
-| Controlled updates | Evaluate, activate, and roll back versioned detection changes | Planned |
+| Adaptive intake | Selected text and browser-local screenshot extraction, with editable review | Implemented; image/OCR quality not benchmarked |
+| Evidence extraction | Rule/model concerns reference exact source excerpts | Implemented; model semantic quality unmeasured |
+| Case history | Revisioned events, supersession, historical assessments and corrections | Implemented and tested |
+| Concern assessment | Specific concern, next action and limitations | Local baseline implemented; cloud adapters protocol-tested |
+| Clarification | A general next-action question when financial context is incomplete | Implemented; selective question benefit unmeasured |
+| Case-level alerts | Quiet updates for unchanged material; new action/amount re-alerts | Implemented and tested; lexical policy has limits |
+| Android sharing | Review shared text/images before submission | Source implemented; APK/device validation pending |
+| Notification access | Opt-in package allowlist and locally reviewed previews | Source implemented; device coverage pending |
+| Payment-request checking | Strict QR/link fields bound to current case assessment | Implemented and tested; live handoff disabled |
+| Gateway sandbox | Real test-order adapter and signed event verification | Fake-provider tests pass; real account verification pending |
+| Workflow discovery | Consented category/description reports and related-report leads | Implemented baseline; emergence quality unmeasured |
+| Controlled updates | Review, regression evaluation, administrator activation and rollback | Implemented and tested; published synthetic gate only |
 
 **Initial language:** English. Support for other languages is outside the first validated release.
 
@@ -149,7 +190,7 @@ Live handoff remains disabled until the applicable provider prerequisites and de
 
 ## Architecture
 
-The initial architecture uses one modular backend and a separate worker, with shared contracts for the web and Android clients.
+The delivered local implementation uses one synchronous FastAPI backend and SQLite. The full target architecture below introduces PostgreSQL and a separate durable worker, with shared contracts for the web and Android clients. Those deployment components are not included in the current local build.
 
 ```text
 Mobile-friendly web             Android companion
@@ -305,7 +346,7 @@ Test English spelling, informal phrasing, OCR quality, verbosity, and reviewed I
 
 Proposed defaults are seven days for private cases, thirty days for opted-in minimized reports, and seven days for content-free operational logs. Raw screenshots remain client-local during review where possible; optional backend copies are deleted after processing or within 24 hours.
 
-These defaults are not implemented yet and are not statutory-retention claims. Deletion must cover derived records, caches, embeddings, and contribution memberships, with backup/provider limitations documented. See [the full privacy design](./implementation.md#6-security-retention-and-user-control).
+The local API implements seven-day case retention with cleanup at startup, case-list access and periodic cleanup while running. Deletion cascades through local source/derived records and withdraws dependent contributions and updates. A contribution also ends when its source case expires, so its nominal thirty-day ceiling does not extend the seven-day source lifetime. Raw screenshots are not uploaded by the web flow. These are product defaults, not statutory-retention claims; external providers and separately made backups have their own retention. See [the full target privacy design](./implementation.md#6-security-retention-and-user-control).
 
 ## Development setup
 
@@ -313,11 +354,19 @@ These defaults are not implemented yet and are not statutory-retention claims. D
 
 ```text
 sachet/
-  implementation.md       # Detailed engineering and submission specification
-  readme.md               # Project overview and contributor orientation
+  apps/web/               # React/TypeScript UI
+  apps/android/           # Kotlin companion source and Gradle wrapper
+  services/api/           # FastAPI, SQLite, rules and optional providers
+  evaluation/             # 40 synthetic journeys, runner and reports
+  tests/                  # API, provider and data-loader regression checks
+  scripts/                # Setup, start and test commands
+  infra/                  # Local Docker development configuration
+  docs/                   # Status, capabilities, resources and runbook
+  implementation.md       # Full target engineering/submission specification
+  readme.md               # Setup and product overview
 ```
 
-There is currently no runnable application, dependency manifest, Compose file, APK, or evaluation runner. Installation and startup commands will be added when those artifacts exist and have been tested. No API key is needed to read the current documents.
+The local web application, API, dependency manifests, Compose configuration and evaluation runner are included. Start with the commands near the top of this README. An APK and live provider validations are not included; consult `docs/build-status.md` for the precise validation boundary.
 
 ### Planned prerequisites
 
@@ -340,11 +389,11 @@ Exact versions, model identifiers, and account capabilities are implementation c
 | Payments | Test-mode keys, callback verification, and a disabled-by-default live-handoff setting |
 | Data handling | Retention windows, artifact storage, contribution controls, and logging policy |
 
-These are configuration categories, not currently supported environment variables. Publish a tested `.env.example` alongside the code. Keep real credentials on the backend and outside version control.
+The implemented variables are documented in `.env.example`. Keep real credentials on the backend and outside version control. The table includes future deployment categories from the full specification.
 
 ### Target repository structure
 
-The following directories are planned and have not yet been created:
+The full target layout below includes future worker, migration and contract-generation modules. Use the actual layout above for the runnable local implementation:
 
 ```text
 sachet/
@@ -369,14 +418,14 @@ sachet/
 
 | Milestone | Deliverable | Current status |
 | --- | --- | --- |
-| M0 | Access probes, capability matrix, shared contracts, provider/data policies | Pending |
-| M1 | Audited loader, reviewed cases, baseline comparison | Pending |
-| M2 | Working case engine with corrections, revisions, and assessment | Pending |
-| M3 | Responsive UI and tested Android sharing/notification paths | Pending |
-| M4 | Payment-request binding, verified gateway test events, handoff readiness | Pending |
-| M5 | Contribution controls, candidate discovery, analyst review | Pending |
-| M6 | Evaluated activation, rejected updates, rollback | Pending |
-| M7 | Full evaluation, usability findings, reproducible deployment, demo runbook | Pending |
+| M0 | Access probes, capability matrix, shared contracts, provider/data policies | Local contracts implemented; external access gates pending |
+| M1 | Audited loader, reviewed cases, baseline comparison | Synthetic engineering runner implemented; independent review/model comparison pending |
+| M2 | Working case engine with corrections, revisions, and assessment | Local implementation tested |
+| M3 | Responsive UI and tested Android sharing/notification paths | Web implemented; Android source present, device gate pending |
+| M4 | Payment-request binding, verified gateway test events, handoff readiness | Preview and fake-provider tests pass; real account/device gate pending |
+| M5 | Contribution controls, candidate discovery, analyst review | Local category/narrative review implemented; discovery quality unmeasured |
+| M6 | Evaluated activation, rejected updates, rollback | Synthetic regression/release controls tested; independent benefit unmeasured |
+| M7 | Full evaluation, usability findings, reproducible deployment, demo runbook | Local startup/runbook ready; full research/deployment gates pending |
 
 The implementation plan defines ten detailed steps beneath these milestones. There is no artificial eight-hour development constraint. The submission must still explain a credible 48-hour finale execution plan, using only preparation permitted by the organizers.
 

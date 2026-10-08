@@ -1,0 +1,14 @@
+{
+  "name": "sachet",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Evidence-led financial scam workflow assessment",
+  "scripts": {
+    "setup": "node scripts/setup.mjs",
+    "dev": "node scripts/dev.mjs",
+    "build": "npm --prefix apps/web run build",
+    "test": "node scripts/check.mjs",
+    "evaluate": "node scripts/check.mjs --evaluate"
+  },
+  "engines": { "node": ">=22" }
+}

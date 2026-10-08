@@ -1,0 +1,10 @@
+.git
+.venv
+**/node_modules
+**/dist
+**/__pycache__
+data
+.env
+*.log
+apps/android/.gradle
+apps/android/**/build

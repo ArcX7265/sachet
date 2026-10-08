@@ -1,0 +1,2403 @@
+{
+  "purpose": "Synthetic engineering regression; no real-world accuracy or model superiority claim.",
+  "case_count": 40,
+  "source_counts": {
+    "legacy engineering fixture": 16,
+    "streaming engineering fixture": 24
+  },
+  "prefix_count": 65,
+  "limitations": [
+    "All scenarios and provisional labels are AI-authored, synthetic and developer-visible.",
+    "Related families and paired lookalikes are not independent draws. No human double annotation.",
+    "These compare deterministic rules on latest message versus available context, not different AI models.",
+    "Cloud model and structured-state contribution experiments require configured providers and independently reviewed data.",
+    "CPU inference time excludes network, OCR, queue and user decision time. No financial loss reduction was measured."
+  ],
+  "records": [
+    {
+      "case_id": "dev_01",
+      "family": "withdrawal_condition",
+      "scenario_type": "concerning",
+      "prefix": 1,
+      "final_prefix": true,
+      "baseline": "latest_message_rules",
+      "expected_responses": [
+        "warn"
+      ],
+      "response": "warn",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.308,
+      "engine": "local_rules",
+      "concern_ids": [
+        "advance_payment"
+      ]
+    },
+    {
+      "case_id": "dev_01",
+      "family": "withdrawal_condition",
+      "scenario_type": "concerning",
+      "prefix": 1,
+      "final_prefix": true,
+      "baseline": "available_context_rules",
+      "expected_responses": [
+        "warn"
+      ],
+      "response": "warn",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.071,
+      "engine": "local_rules",
+      "concern_ids": [
+        "advance_payment"
+      ]
+    },
+    {
+      "case_id": "dev_02",
+      "family": "withdrawal_condition",
+      "scenario_type": "legitimate_lookalike",
+      "prefix": 1,
+      "final_prefix": true,
+      "baseline": "latest_message_rules",
+      "expected_responses": [
+        "explain",
+        "clarify"
+      ],
+      "response": "clarify",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.062,
+      "engine": "local_rules",
+      "concern_ids": []
+    },
+    {
+      "case_id": "dev_02",
+      "family": "withdrawal_condition",
+      "scenario_type": "legitimate_lookalike",
+      "prefix": 1,
+      "final_prefix": true,
+      "baseline": "available_context_rules",
+      "expected_responses": [
+        "explain",
+        "clarify"
+      ],
+      "response": "clarify",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.055,
+      "engine": "local_rules",
+      "concern_ids": []
+    },
+    {
+      "case_id": "dev_03",
+      "family": "credential_request",
+      "scenario_type": "legitimate_lookalike",
+      "prefix": 1,
+      "final_prefix": true,
+      "baseline": "latest_message_rules",
+      "expected_responses": [
+        "explain",
+        "clarify"
+      ],
+      "response": "clarify",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.034,
+      "engine": "local_rules",
+      "concern_ids": []
+    },
+    {
+      "case_id": "dev_03",
+      "family": "credential_request",
+      "scenario_type": "legitimate_lookalike",
+      "prefix": 1,
+      "final_prefix": true,
+      "baseline": "available_context_rules",
+      "expected_responses": [
+        "explain",
+        "clarify"
+      ],
+      "response": "clarify",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.03,
+      "engine": "local_rules",
+      "concern_ids": []
+    },
+    {
+      "case_id": "dev_04",
+      "family": "credential_request",
+      "scenario_type": "concerning",
+      "prefix": 1,
+      "final_prefix": true,
+      "baseline": "latest_message_rules",
+      "expected_responses": [
+        "warn"
+      ],
+      "response": "warn",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.041,
+      "engine": "local_rules",
+      "concern_ids": [
+        "credential_request"
+      ]
+    },
+    {
+      "case_id": "dev_04",
+      "family": "credential_request",
+      "scenario_type": "concerning",
+      "prefix": 1,
+      "final_prefix": true,
+      "baseline": "available_context_rules",
+      "expected_responses": [
+        "warn"
+      ],
+      "response": "warn",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.038,
+      "engine": "local_rules",
+      "concern_ids": [
+        "credential_request"
+      ]
+    },
+    {
+      "case_id": "dev_05",
+      "family": "reported_speech",
+      "scenario_type": "concerning",
+      "prefix": 1,
+      "final_prefix": true,
+      "baseline": "latest_message_rules",
+      "expected_responses": [
+        "warn"
+      ],
+      "response": "warn",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.049,
+      "engine": "local_rules",
+      "concern_ids": [
+        "credential_request"
+      ]
+    },
+    {
+      "case_id": "dev_05",
+      "family": "reported_speech",
+      "scenario_type": "concerning",
+      "prefix": 1,
+      "final_prefix": true,
+      "baseline": "available_context_rules",
+      "expected_responses": [
+        "warn"
+      ],
+      "response": "warn",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.046,
+      "engine": "local_rules",
+      "concern_ids": [
+        "credential_request"
+      ]
+    },
+    {
+      "case_id": "dev_06",
+      "family": "reported_speech",
+      "scenario_type": "legitimate_lookalike",
+      "prefix": 1,
+      "final_prefix": true,
+      "baseline": "latest_message_rules",
+      "expected_responses": [
+        "explain",
+        "clarify"
+      ],
+      "response": "clarify",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.036,
+      "engine": "local_rules",
+      "concern_ids": []
+    },
+    {
+      "case_id": "dev_06",
+      "family": "reported_speech",
+      "scenario_type": "legitimate_lookalike",
+      "prefix": 1,
+      "final_prefix": true,
+      "baseline": "available_context_rules",
+      "expected_responses": [
+        "explain",
+        "clarify"
+      ],
+      "response": "clarify",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.034,
+      "engine": "local_rules",
+      "concern_ids": []
+    },
+    {
+      "case_id": "dev_07",
+      "family": "transaction_linkage",
+      "scenario_type": "legitimate_lookalike",
+      "prefix": 1,
+      "final_prefix": true,
+      "baseline": "latest_message_rules",
+      "expected_responses": [
+        "explain",
+        "clarify"
+      ],
+      "response": "clarify",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.064,
+      "engine": "local_rules",
+      "concern_ids": []
+    },
+    {
+      "case_id": "dev_07",
+      "family": "transaction_linkage",
+      "scenario_type": "legitimate_lookalike",
+      "prefix": 1,
+      "final_prefix": true,
+      "baseline": "available_context_rules",
+      "expected_responses": [
+        "explain",
+        "clarify"
+      ],
+      "response": "clarify",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.061,
+      "engine": "local_rules",
+      "concern_ids": []
+    },
+    {
+      "case_id": "dev_08",
+      "family": "transaction_linkage",
+      "scenario_type": "unresolved",
+      "prefix": 1,
+      "final_prefix": true,
+      "baseline": "latest_message_rules",
+      "expected_responses": [
+        "clarify",
+        "explain"
+      ],
+      "response": "clarify",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.037,
+      "engine": "local_rules",
+      "concern_ids": []
+    },
+    {
+      "case_id": "dev_08",
+      "family": "transaction_linkage",
+      "scenario_type": "unresolved",
+      "prefix": 1,
+      "final_prefix": true,
+      "baseline": "available_context_rules",
+      "expected_responses": [
+        "clarify",
+        "explain"
+      ],
+      "response": "clarify",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.035,
+      "engine": "local_rules",
+      "concern_ids": []
+    },
+    {
+      "case_id": "dev_09",
+      "family": "revision_chronology",
+      "scenario_type": "unresolved",
+      "prefix": 1,
+      "final_prefix": true,
+      "baseline": "latest_message_rules",
+      "expected_responses": [
+        "clarify",
+        "explain"
+      ],
+      "response": "explain",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.053,
+      "engine": "local_rules",
+      "concern_ids": []
+    },
+    {
+      "case_id": "dev_09",
+      "family": "revision_chronology",
+      "scenario_type": "unresolved",
+      "prefix": 1,
+      "final_prefix": true,
+      "baseline": "available_context_rules",
+      "expected_responses": [
+        "clarify",
+        "explain"
+      ],
+      "response": "explain",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.051,
+      "engine": "local_rules",
+      "concern_ids": []
+    },
+    {
+      "case_id": "dev_10",
+      "family": "revision_chronology",
+      "scenario_type": "legitimate_lookalike",
+      "prefix": 1,
+      "final_prefix": true,
+      "baseline": "latest_message_rules",
+      "expected_responses": [
+        "explain",
+        "clarify"
+      ],
+      "response": "clarify",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.085,
+      "engine": "local_rules",
+      "concern_ids": []
+    },
+    {
+      "case_id": "dev_10",
+      "family": "revision_chronology",
+      "scenario_type": "legitimate_lookalike",
+      "prefix": 1,
+      "final_prefix": true,
+      "baseline": "available_context_rules",
+      "expected_responses": [
+        "explain",
+        "clarify"
+      ],
+      "response": "clarify",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.082,
+      "engine": "local_rules",
+      "concern_ids": []
+    },
+    {
+      "case_id": "val_01",
+      "family": "recovery_terms",
+      "scenario_type": "concerning",
+      "prefix": 1,
+      "final_prefix": true,
+      "baseline": "latest_message_rules",
+      "expected_responses": [
+        "warn",
+        "clarify"
+      ],
+      "response": "warn",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.089,
+      "engine": "local_rules",
+      "concern_ids": [
+        "advance_payment"
+      ]
+    },
+    {
+      "case_id": "val_01",
+      "family": "recovery_terms",
+      "scenario_type": "concerning",
+      "prefix": 1,
+      "final_prefix": true,
+      "baseline": "available_context_rules",
+      "expected_responses": [
+        "warn",
+        "clarify"
+      ],
+      "response": "warn",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.086,
+      "engine": "local_rules",
+      "concern_ids": [
+        "advance_payment"
+      ]
+    },
+    {
+      "case_id": "val_02",
+      "family": "recovery_terms",
+      "scenario_type": "legitimate_lookalike",
+      "prefix": 1,
+      "final_prefix": true,
+      "baseline": "latest_message_rules",
+      "expected_responses": [
+        "explain",
+        "clarify"
+      ],
+      "response": "clarify",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.062,
+      "engine": "local_rules",
+      "concern_ids": []
+    },
+    {
+      "case_id": "val_02",
+      "family": "recovery_terms",
+      "scenario_type": "legitimate_lookalike",
+      "prefix": 1,
+      "final_prefix": true,
+      "baseline": "available_context_rules",
+      "expected_responses": [
+        "explain",
+        "clarify"
+      ],
+      "response": "clarify",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.059,
+      "engine": "local_rules",
+      "concern_ids": []
+    },
+    {
+      "case_id": "val_03",
+      "family": "screen_access",
+      "scenario_type": "concerning",
+      "prefix": 1,
+      "final_prefix": true,
+      "baseline": "latest_message_rules",
+      "expected_responses": [
+        "warn",
+        "clarify"
+      ],
+      "response": "warn",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.056,
+      "engine": "local_rules",
+      "concern_ids": [
+        "remote_access"
+      ]
+    },
+    {
+      "case_id": "val_03",
+      "family": "screen_access",
+      "scenario_type": "concerning",
+      "prefix": 1,
+      "final_prefix": true,
+      "baseline": "available_context_rules",
+      "expected_responses": [
+        "warn",
+        "clarify"
+      ],
+      "response": "warn",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.053,
+      "engine": "local_rules",
+      "concern_ids": [
+        "remote_access"
+      ]
+    },
+    {
+      "case_id": "val_04",
+      "family": "screen_access",
+      "scenario_type": "legitimate_lookalike",
+      "prefix": 1,
+      "final_prefix": true,
+      "baseline": "latest_message_rules",
+      "expected_responses": [
+        "explain",
+        "clarify"
+      ],
+      "response": "clarify",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.028,
+      "engine": "local_rules",
+      "concern_ids": []
+    },
+    {
+      "case_id": "val_04",
+      "family": "screen_access",
+      "scenario_type": "legitimate_lookalike",
+      "prefix": 1,
+      "final_prefix": true,
+      "baseline": "available_context_rules",
+      "expected_responses": [
+        "explain",
+        "clarify"
+      ],
+      "response": "clarify",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.028,
+      "engine": "local_rules",
+      "concern_ids": []
+    },
+    {
+      "case_id": "val_05",
+      "family": "local_help",
+      "scenario_type": "concerning",
+      "prefix": 1,
+      "final_prefix": true,
+      "baseline": "latest_message_rules",
+      "expected_responses": [
+        "warn"
+      ],
+      "response": "warn",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.054,
+      "engine": "local_rules",
+      "concern_ids": [
+        "remote_access"
+      ]
+    },
+    {
+      "case_id": "val_05",
+      "family": "local_help",
+      "scenario_type": "concerning",
+      "prefix": 1,
+      "final_prefix": true,
+      "baseline": "available_context_rules",
+      "expected_responses": [
+        "warn"
+      ],
+      "response": "warn",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.053,
+      "engine": "local_rules",
+      "concern_ids": [
+        "remote_access"
+      ]
+    },
+    {
+      "case_id": "val_06",
+      "family": "local_help",
+      "scenario_type": "legitimate_lookalike",
+      "prefix": 1,
+      "final_prefix": true,
+      "baseline": "latest_message_rules",
+      "expected_responses": [
+        "explain",
+        "clarify"
+      ],
+      "response": "clarify",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.042,
+      "engine": "local_rules",
+      "concern_ids": []
+    },
+    {
+      "case_id": "val_06",
+      "family": "local_help",
+      "scenario_type": "legitimate_lookalike",
+      "prefix": 1,
+      "final_prefix": true,
+      "baseline": "available_context_rules",
+      "expected_responses": [
+        "explain",
+        "clarify"
+      ],
+      "response": "clarify",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.041,
+      "engine": "local_rules",
+      "concern_ids": []
+    },
+    {
+      "case_id": "stream_01",
+      "family": "withdrawal",
+      "scenario_type": "concerning",
+      "prefix": 1,
+      "final_prefix": false,
+      "baseline": "latest_message_rules",
+      "expected_responses": [
+        "explain",
+        "clarify"
+      ],
+      "response": "clarify",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.018,
+      "engine": "local_rules",
+      "concern_ids": []
+    },
+    {
+      "case_id": "stream_01",
+      "family": "withdrawal",
+      "scenario_type": "concerning",
+      "prefix": 1,
+      "final_prefix": false,
+      "baseline": "available_context_rules",
+      "expected_responses": [
+        "explain",
+        "clarify"
+      ],
+      "response": "clarify",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.018,
+      "engine": "local_rules",
+      "concern_ids": []
+    },
+    {
+      "case_id": "stream_01",
+      "family": "withdrawal",
+      "scenario_type": "concerning",
+      "prefix": 2,
+      "final_prefix": true,
+      "baseline": "latest_message_rules",
+      "expected_responses": [
+        "warn"
+      ],
+      "response": "warn",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.029,
+      "engine": "local_rules",
+      "concern_ids": [
+        "advance_payment"
+      ]
+    },
+    {
+      "case_id": "stream_01",
+      "family": "withdrawal",
+      "scenario_type": "concerning",
+      "prefix": 2,
+      "final_prefix": true,
+      "baseline": "available_context_rules",
+      "expected_responses": [
+        "warn"
+      ],
+      "response": "warn",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.038,
+      "engine": "local_rules",
+      "concern_ids": [
+        "advance_payment"
+      ]
+    },
+    {
+      "case_id": "stream_02",
+      "family": "withdrawal",
+      "scenario_type": "legitimate_lookalike",
+      "prefix": 1,
+      "final_prefix": false,
+      "baseline": "latest_message_rules",
+      "expected_responses": [
+        "explain",
+        "clarify"
+      ],
+      "response": "explain",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.035,
+      "engine": "local_rules",
+      "concern_ids": []
+    },
+    {
+      "case_id": "stream_02",
+      "family": "withdrawal",
+      "scenario_type": "legitimate_lookalike",
+      "prefix": 1,
+      "final_prefix": false,
+      "baseline": "available_context_rules",
+      "expected_responses": [
+        "explain",
+        "clarify"
+      ],
+      "response": "explain",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.028,
+      "engine": "local_rules",
+      "concern_ids": []
+    },
+    {
+      "case_id": "stream_02",
+      "family": "withdrawal",
+      "scenario_type": "legitimate_lookalike",
+      "prefix": 2,
+      "final_prefix": true,
+      "baseline": "latest_message_rules",
+      "expected_responses": [
+        "explain",
+        "clarify"
+      ],
+      "response": "clarify",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.021,
+      "engine": "local_rules",
+      "concern_ids": []
+    },
+    {
+      "case_id": "stream_02",
+      "family": "withdrawal",
+      "scenario_type": "legitimate_lookalike",
+      "prefix": 2,
+      "final_prefix": true,
+      "baseline": "available_context_rules",
+      "expected_responses": [
+        "explain",
+        "clarify"
+      ],
+      "response": "clarify",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.043,
+      "engine": "local_rules",
+      "concern_ids": []
+    },
+    {
+      "case_id": "stream_03",
+      "family": "credentials",
+      "scenario_type": "concerning",
+      "prefix": 1,
+      "final_prefix": false,
+      "baseline": "latest_message_rules",
+      "expected_responses": [
+        "explain",
+        "clarify"
+      ],
+      "response": "explain",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.016,
+      "engine": "local_rules",
+      "concern_ids": []
+    },
+    {
+      "case_id": "stream_03",
+      "family": "credentials",
+      "scenario_type": "concerning",
+      "prefix": 1,
+      "final_prefix": false,
+      "baseline": "available_context_rules",
+      "expected_responses": [
+        "explain",
+        "clarify"
+      ],
+      "response": "explain",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.014,
+      "engine": "local_rules",
+      "concern_ids": []
+    },
+    {
+      "case_id": "stream_03",
+      "family": "credentials",
+      "scenario_type": "concerning",
+      "prefix": 2,
+      "final_prefix": true,
+      "baseline": "latest_message_rules",
+      "expected_responses": [
+        "warn"
+      ],
+      "response": "warn",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.02,
+      "engine": "local_rules",
+      "concern_ids": [
+        "credential_request"
+      ]
+    },
+    {
+      "case_id": "stream_03",
+      "family": "credentials",
+      "scenario_type": "concerning",
+      "prefix": 2,
+      "final_prefix": true,
+      "baseline": "available_context_rules",
+      "expected_responses": [
+        "warn"
+      ],
+      "response": "warn",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.032,
+      "engine": "local_rules",
+      "concern_ids": [
+        "credential_request"
+      ]
+    },
+    {
+      "case_id": "stream_04",
+      "family": "credentials",
+      "scenario_type": "legitimate_lookalike",
+      "prefix": 1,
+      "final_prefix": false,
+      "baseline": "latest_message_rules",
+      "expected_responses": [
+        "explain",
+        "clarify"
+      ],
+      "response": "clarify",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.016,
+      "engine": "local_rules",
+      "concern_ids": []
+    },
+    {
+      "case_id": "stream_04",
+      "family": "credentials",
+      "scenario_type": "legitimate_lookalike",
+      "prefix": 1,
+      "final_prefix": false,
+      "baseline": "available_context_rules",
+      "expected_responses": [
+        "explain",
+        "clarify"
+      ],
+      "response": "clarify",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.008,
+      "engine": "local_rules",
+      "concern_ids": []
+    },
+    {
+      "case_id": "stream_04",
+      "family": "credentials",
+      "scenario_type": "legitimate_lookalike",
+      "prefix": 2,
+      "final_prefix": true,
+      "baseline": "latest_message_rules",
+      "expected_responses": [
+        "explain",
+        "clarify"
+      ],
+      "response": "explain",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.013,
+      "engine": "local_rules",
+      "concern_ids": []
+    },
+    {
+      "case_id": "stream_04",
+      "family": "credentials",
+      "scenario_type": "legitimate_lookalike",
+      "prefix": 2,
+      "final_prefix": true,
+      "baseline": "available_context_rules",
+      "expected_responses": [
+        "explain",
+        "clarify"
+      ],
+      "response": "clarify",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.013,
+      "engine": "local_rules",
+      "concern_ids": []
+    },
+    {
+      "case_id": "stream_05",
+      "family": "credentials",
+      "scenario_type": "concerning",
+      "prefix": 1,
+      "final_prefix": false,
+      "baseline": "latest_message_rules",
+      "expected_responses": [
+        "warn"
+      ],
+      "response": "warn",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.019,
+      "engine": "local_rules",
+      "concern_ids": [
+        "credential_request"
+      ]
+    },
+    {
+      "case_id": "stream_05",
+      "family": "credentials",
+      "scenario_type": "concerning",
+      "prefix": 1,
+      "final_prefix": false,
+      "baseline": "available_context_rules",
+      "expected_responses": [
+        "warn"
+      ],
+      "response": "warn",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.018,
+      "engine": "local_rules",
+      "concern_ids": [
+        "credential_request"
+      ]
+    },
+    {
+      "case_id": "stream_05",
+      "family": "credentials",
+      "scenario_type": "concerning",
+      "prefix": 2,
+      "final_prefix": true,
+      "baseline": "latest_message_rules",
+      "expected_responses": [
+        "warn"
+      ],
+      "response": "clarify",
+      "matches_engineering_expectation": false,
+      "evidence_errors": [],
+      "latency_ms": 0.019,
+      "engine": "local_rules",
+      "concern_ids": []
+    },
+    {
+      "case_id": "stream_05",
+      "family": "credentials",
+      "scenario_type": "concerning",
+      "prefix": 2,
+      "final_prefix": true,
+      "baseline": "available_context_rules",
+      "expected_responses": [
+        "warn"
+      ],
+      "response": "warn",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.031,
+      "engine": "local_rules",
+      "concern_ids": [
+        "credential_request"
+      ]
+    },
+    {
+      "case_id": "stream_06",
+      "family": "credentials",
+      "scenario_type": "legitimate_lookalike",
+      "prefix": 1,
+      "final_prefix": false,
+      "baseline": "latest_message_rules",
+      "expected_responses": [
+        "explain",
+        "clarify"
+      ],
+      "response": "explain",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.017,
+      "engine": "local_rules",
+      "concern_ids": []
+    },
+    {
+      "case_id": "stream_06",
+      "family": "credentials",
+      "scenario_type": "legitimate_lookalike",
+      "prefix": 1,
+      "final_prefix": false,
+      "baseline": "available_context_rules",
+      "expected_responses": [
+        "explain",
+        "clarify"
+      ],
+      "response": "explain",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.081,
+      "engine": "local_rules",
+      "concern_ids": []
+    },
+    {
+      "case_id": "stream_06",
+      "family": "credentials",
+      "scenario_type": "legitimate_lookalike",
+      "prefix": 2,
+      "final_prefix": true,
+      "baseline": "latest_message_rules",
+      "expected_responses": [
+        "explain",
+        "clarify"
+      ],
+      "response": "clarify",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.027,
+      "engine": "local_rules",
+      "concern_ids": []
+    },
+    {
+      "case_id": "stream_06",
+      "family": "credentials",
+      "scenario_type": "legitimate_lookalike",
+      "prefix": 2,
+      "final_prefix": true,
+      "baseline": "available_context_rules",
+      "expected_responses": [
+        "explain",
+        "clarify"
+      ],
+      "response": "clarify",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.032,
+      "engine": "local_rules",
+      "concern_ids": []
+    },
+    {
+      "case_id": "stream_07",
+      "family": "remote_access",
+      "scenario_type": "concerning",
+      "prefix": 1,
+      "final_prefix": false,
+      "baseline": "latest_message_rules",
+      "expected_responses": [
+        "explain",
+        "clarify"
+      ],
+      "response": "clarify",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.013,
+      "engine": "local_rules",
+      "concern_ids": []
+    },
+    {
+      "case_id": "stream_07",
+      "family": "remote_access",
+      "scenario_type": "concerning",
+      "prefix": 1,
+      "final_prefix": false,
+      "baseline": "available_context_rules",
+      "expected_responses": [
+        "explain",
+        "clarify"
+      ],
+      "response": "clarify",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.012,
+      "engine": "local_rules",
+      "concern_ids": []
+    },
+    {
+      "case_id": "stream_07",
+      "family": "remote_access",
+      "scenario_type": "concerning",
+      "prefix": 2,
+      "final_prefix": true,
+      "baseline": "latest_message_rules",
+      "expected_responses": [
+        "warn"
+      ],
+      "response": "warn",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.025,
+      "engine": "local_rules",
+      "concern_ids": [
+        "remote_access"
+      ]
+    },
+    {
+      "case_id": "stream_07",
+      "family": "remote_access",
+      "scenario_type": "concerning",
+      "prefix": 2,
+      "final_prefix": true,
+      "baseline": "available_context_rules",
+      "expected_responses": [
+        "warn"
+      ],
+      "response": "warn",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.03,
+      "engine": "local_rules",
+      "concern_ids": [
+        "remote_access"
+      ]
+    },
+    {
+      "case_id": "stream_08",
+      "family": "remote_access",
+      "scenario_type": "legitimate_lookalike",
+      "prefix": 1,
+      "final_prefix": false,
+      "baseline": "latest_message_rules",
+      "expected_responses": [
+        "explain",
+        "clarify"
+      ],
+      "response": "clarify",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.012,
+      "engine": "local_rules",
+      "concern_ids": []
+    },
+    {
+      "case_id": "stream_08",
+      "family": "remote_access",
+      "scenario_type": "legitimate_lookalike",
+      "prefix": 1,
+      "final_prefix": false,
+      "baseline": "available_context_rules",
+      "expected_responses": [
+        "explain",
+        "clarify"
+      ],
+      "response": "clarify",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.011,
+      "engine": "local_rules",
+      "concern_ids": []
+    },
+    {
+      "case_id": "stream_08",
+      "family": "remote_access",
+      "scenario_type": "legitimate_lookalike",
+      "prefix": 2,
+      "final_prefix": true,
+      "baseline": "latest_message_rules",
+      "expected_responses": [
+        "explain",
+        "clarify"
+      ],
+      "response": "explain",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.015,
+      "engine": "local_rules",
+      "concern_ids": []
+    },
+    {
+      "case_id": "stream_08",
+      "family": "remote_access",
+      "scenario_type": "legitimate_lookalike",
+      "prefix": 2,
+      "final_prefix": true,
+      "baseline": "available_context_rules",
+      "expected_responses": [
+        "explain",
+        "clarify"
+      ],
+      "response": "clarify",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.018,
+      "engine": "local_rules",
+      "concern_ids": []
+    },
+    {
+      "case_id": "stream_09",
+      "family": "advance_fee",
+      "scenario_type": "concerning",
+      "prefix": 1,
+      "final_prefix": false,
+      "baseline": "latest_message_rules",
+      "expected_responses": [
+        "explain",
+        "clarify"
+      ],
+      "response": "explain",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.016,
+      "engine": "local_rules",
+      "concern_ids": []
+    },
+    {
+      "case_id": "stream_09",
+      "family": "advance_fee",
+      "scenario_type": "concerning",
+      "prefix": 1,
+      "final_prefix": false,
+      "baseline": "available_context_rules",
+      "expected_responses": [
+        "explain",
+        "clarify"
+      ],
+      "response": "explain",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.013,
+      "engine": "local_rules",
+      "concern_ids": []
+    },
+    {
+      "case_id": "stream_09",
+      "family": "advance_fee",
+      "scenario_type": "concerning",
+      "prefix": 2,
+      "final_prefix": true,
+      "baseline": "latest_message_rules",
+      "expected_responses": [
+        "warn"
+      ],
+      "response": "warn",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.026,
+      "engine": "local_rules",
+      "concern_ids": [
+        "advance_payment"
+      ]
+    },
+    {
+      "case_id": "stream_09",
+      "family": "advance_fee",
+      "scenario_type": "concerning",
+      "prefix": 2,
+      "final_prefix": true,
+      "baseline": "available_context_rules",
+      "expected_responses": [
+        "warn"
+      ],
+      "response": "warn",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.032,
+      "engine": "local_rules",
+      "concern_ids": [
+        "advance_payment"
+      ]
+    },
+    {
+      "case_id": "stream_10",
+      "family": "advance_fee",
+      "scenario_type": "legitimate_lookalike",
+      "prefix": 1,
+      "final_prefix": false,
+      "baseline": "latest_message_rules",
+      "expected_responses": [
+        "explain",
+        "clarify"
+      ],
+      "response": "explain",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.055,
+      "engine": "local_rules",
+      "concern_ids": []
+    },
+    {
+      "case_id": "stream_10",
+      "family": "advance_fee",
+      "scenario_type": "legitimate_lookalike",
+      "prefix": 1,
+      "final_prefix": false,
+      "baseline": "available_context_rules",
+      "expected_responses": [
+        "explain",
+        "clarify"
+      ],
+      "response": "explain",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.048,
+      "engine": "local_rules",
+      "concern_ids": []
+    },
+    {
+      "case_id": "stream_10",
+      "family": "advance_fee",
+      "scenario_type": "legitimate_lookalike",
+      "prefix": 2,
+      "final_prefix": true,
+      "baseline": "latest_message_rules",
+      "expected_responses": [
+        "explain",
+        "clarify"
+      ],
+      "response": "clarify",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.072,
+      "engine": "local_rules",
+      "concern_ids": []
+    },
+    {
+      "case_id": "stream_10",
+      "family": "advance_fee",
+      "scenario_type": "legitimate_lookalike",
+      "prefix": 2,
+      "final_prefix": true,
+      "baseline": "available_context_rules",
+      "expected_responses": [
+        "explain",
+        "clarify"
+      ],
+      "response": "clarify",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.081,
+      "engine": "local_rules",
+      "concern_ids": []
+    },
+    {
+      "case_id": "stream_11",
+      "family": "recovery",
+      "scenario_type": "concerning",
+      "prefix": 1,
+      "final_prefix": false,
+      "baseline": "latest_message_rules",
+      "expected_responses": [
+        "explain",
+        "clarify"
+      ],
+      "response": "explain",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.082,
+      "engine": "local_rules",
+      "concern_ids": []
+    },
+    {
+      "case_id": "stream_11",
+      "family": "recovery",
+      "scenario_type": "concerning",
+      "prefix": 1,
+      "final_prefix": false,
+      "baseline": "available_context_rules",
+      "expected_responses": [
+        "explain",
+        "clarify"
+      ],
+      "response": "explain",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.057,
+      "engine": "local_rules",
+      "concern_ids": []
+    },
+    {
+      "case_id": "stream_11",
+      "family": "recovery",
+      "scenario_type": "concerning",
+      "prefix": 2,
+      "final_prefix": true,
+      "baseline": "latest_message_rules",
+      "expected_responses": [
+        "warn"
+      ],
+      "response": "warn",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.034,
+      "engine": "local_rules",
+      "concern_ids": [
+        "advance_payment"
+      ]
+    },
+    {
+      "case_id": "stream_11",
+      "family": "recovery",
+      "scenario_type": "concerning",
+      "prefix": 2,
+      "final_prefix": true,
+      "baseline": "available_context_rules",
+      "expected_responses": [
+        "warn"
+      ],
+      "response": "warn",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.035,
+      "engine": "local_rules",
+      "concern_ids": [
+        "advance_payment"
+      ]
+    },
+    {
+      "case_id": "stream_12",
+      "family": "recovery",
+      "scenario_type": "legitimate_lookalike",
+      "prefix": 1,
+      "final_prefix": false,
+      "baseline": "latest_message_rules",
+      "expected_responses": [
+        "explain",
+        "clarify"
+      ],
+      "response": "explain",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.018,
+      "engine": "local_rules",
+      "concern_ids": []
+    },
+    {
+      "case_id": "stream_12",
+      "family": "recovery",
+      "scenario_type": "legitimate_lookalike",
+      "prefix": 1,
+      "final_prefix": false,
+      "baseline": "available_context_rules",
+      "expected_responses": [
+        "explain",
+        "clarify"
+      ],
+      "response": "explain",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.017,
+      "engine": "local_rules",
+      "concern_ids": []
+    },
+    {
+      "case_id": "stream_12",
+      "family": "recovery",
+      "scenario_type": "legitimate_lookalike",
+      "prefix": 2,
+      "final_prefix": true,
+      "baseline": "latest_message_rules",
+      "expected_responses": [
+        "explain",
+        "clarify"
+      ],
+      "response": "explain",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.029,
+      "engine": "local_rules",
+      "concern_ids": []
+    },
+    {
+      "case_id": "stream_12",
+      "family": "recovery",
+      "scenario_type": "legitimate_lookalike",
+      "prefix": 2,
+      "final_prefix": true,
+      "baseline": "available_context_rules",
+      "expected_responses": [
+        "explain",
+        "clarify"
+      ],
+      "response": "explain",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.04,
+      "engine": "local_rules",
+      "concern_ids": []
+    },
+    {
+      "case_id": "stream_13",
+      "family": "digital_arrest",
+      "scenario_type": "concerning",
+      "prefix": 1,
+      "final_prefix": false,
+      "baseline": "latest_message_rules",
+      "expected_responses": [
+        "explain",
+        "clarify"
+      ],
+      "response": "explain",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.017,
+      "engine": "local_rules",
+      "concern_ids": []
+    },
+    {
+      "case_id": "stream_13",
+      "family": "digital_arrest",
+      "scenario_type": "concerning",
+      "prefix": 1,
+      "final_prefix": false,
+      "baseline": "available_context_rules",
+      "expected_responses": [
+        "explain",
+        "clarify"
+      ],
+      "response": "explain",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.016,
+      "engine": "local_rules",
+      "concern_ids": []
+    },
+    {
+      "case_id": "stream_13",
+      "family": "digital_arrest",
+      "scenario_type": "concerning",
+      "prefix": 2,
+      "final_prefix": true,
+      "baseline": "latest_message_rules",
+      "expected_responses": [
+        "warn"
+      ],
+      "response": "warn",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.03,
+      "engine": "local_rules",
+      "concern_ids": [
+        "safe_account"
+      ]
+    },
+    {
+      "case_id": "stream_13",
+      "family": "digital_arrest",
+      "scenario_type": "concerning",
+      "prefix": 2,
+      "final_prefix": true,
+      "baseline": "available_context_rules",
+      "expected_responses": [
+        "warn"
+      ],
+      "response": "warn",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.04,
+      "engine": "local_rules",
+      "concern_ids": [
+        "safe_account"
+      ]
+    },
+    {
+      "case_id": "stream_14",
+      "family": "digital_arrest",
+      "scenario_type": "legitimate_lookalike",
+      "prefix": 1,
+      "final_prefix": false,
+      "baseline": "latest_message_rules",
+      "expected_responses": [
+        "explain",
+        "clarify"
+      ],
+      "response": "clarify",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.013,
+      "engine": "local_rules",
+      "concern_ids": []
+    },
+    {
+      "case_id": "stream_14",
+      "family": "digital_arrest",
+      "scenario_type": "legitimate_lookalike",
+      "prefix": 1,
+      "final_prefix": false,
+      "baseline": "available_context_rules",
+      "expected_responses": [
+        "explain",
+        "clarify"
+      ],
+      "response": "clarify",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.012,
+      "engine": "local_rules",
+      "concern_ids": []
+    },
+    {
+      "case_id": "stream_14",
+      "family": "digital_arrest",
+      "scenario_type": "legitimate_lookalike",
+      "prefix": 2,
+      "final_prefix": true,
+      "baseline": "latest_message_rules",
+      "expected_responses": [
+        "explain",
+        "clarify"
+      ],
+      "response": "clarify",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.033,
+      "engine": "local_rules",
+      "concern_ids": []
+    },
+    {
+      "case_id": "stream_14",
+      "family": "digital_arrest",
+      "scenario_type": "legitimate_lookalike",
+      "prefix": 2,
+      "final_prefix": true,
+      "baseline": "available_context_rules",
+      "expected_responses": [
+        "explain",
+        "clarify"
+      ],
+      "response": "clarify",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.034,
+      "engine": "local_rules",
+      "concern_ids": []
+    },
+    {
+      "case_id": "stream_15",
+      "family": "ambiguous_payment",
+      "scenario_type": "unresolved",
+      "prefix": 1,
+      "final_prefix": false,
+      "baseline": "latest_message_rules",
+      "expected_responses": [
+        "explain",
+        "clarify"
+      ],
+      "response": "clarify",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.014,
+      "engine": "local_rules",
+      "concern_ids": []
+    },
+    {
+      "case_id": "stream_15",
+      "family": "ambiguous_payment",
+      "scenario_type": "unresolved",
+      "prefix": 1,
+      "final_prefix": false,
+      "baseline": "available_context_rules",
+      "expected_responses": [
+        "explain",
+        "clarify"
+      ],
+      "response": "clarify",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.014,
+      "engine": "local_rules",
+      "concern_ids": []
+    },
+    {
+      "case_id": "stream_15",
+      "family": "ambiguous_payment",
+      "scenario_type": "unresolved",
+      "prefix": 2,
+      "final_prefix": true,
+      "baseline": "latest_message_rules",
+      "expected_responses": [
+        "explain",
+        "clarify"
+      ],
+      "response": "explain",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.023,
+      "engine": "local_rules",
+      "concern_ids": []
+    },
+    {
+      "case_id": "stream_15",
+      "family": "ambiguous_payment",
+      "scenario_type": "unresolved",
+      "prefix": 2,
+      "final_prefix": true,
+      "baseline": "available_context_rules",
+      "expected_responses": [
+        "explain",
+        "clarify"
+      ],
+      "response": "clarify",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.028,
+      "engine": "local_rules",
+      "concern_ids": []
+    },
+    {
+      "case_id": "stream_16",
+      "family": "changed_terms",
+      "scenario_type": "legitimate_lookalike",
+      "prefix": 1,
+      "final_prefix": false,
+      "baseline": "latest_message_rules",
+      "expected_responses": [
+        "explain",
+        "clarify"
+      ],
+      "response": "explain",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.015,
+      "engine": "local_rules",
+      "concern_ids": []
+    },
+    {
+      "case_id": "stream_16",
+      "family": "changed_terms",
+      "scenario_type": "legitimate_lookalike",
+      "prefix": 1,
+      "final_prefix": false,
+      "baseline": "available_context_rules",
+      "expected_responses": [
+        "explain",
+        "clarify"
+      ],
+      "response": "explain",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.015,
+      "engine": "local_rules",
+      "concern_ids": []
+    },
+    {
+      "case_id": "stream_16",
+      "family": "changed_terms",
+      "scenario_type": "legitimate_lookalike",
+      "prefix": 2,
+      "final_prefix": true,
+      "baseline": "latest_message_rules",
+      "expected_responses": [
+        "explain",
+        "clarify"
+      ],
+      "response": "explain",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.035,
+      "engine": "local_rules",
+      "concern_ids": []
+    },
+    {
+      "case_id": "stream_16",
+      "family": "changed_terms",
+      "scenario_type": "legitimate_lookalike",
+      "prefix": 2,
+      "final_prefix": true,
+      "baseline": "available_context_rules",
+      "expected_responses": [
+        "explain",
+        "clarify"
+      ],
+      "response": "explain",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.044,
+      "engine": "local_rules",
+      "concern_ids": []
+    },
+    {
+      "case_id": "stream_17",
+      "family": "cross_transaction",
+      "scenario_type": "legitimate_lookalike",
+      "prefix": 1,
+      "final_prefix": false,
+      "baseline": "latest_message_rules",
+      "expected_responses": [
+        "explain",
+        "clarify"
+      ],
+      "response": "explain",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.016,
+      "engine": "local_rules",
+      "concern_ids": []
+    },
+    {
+      "case_id": "stream_17",
+      "family": "cross_transaction",
+      "scenario_type": "legitimate_lookalike",
+      "prefix": 1,
+      "final_prefix": false,
+      "baseline": "available_context_rules",
+      "expected_responses": [
+        "explain",
+        "clarify"
+      ],
+      "response": "explain",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.015,
+      "engine": "local_rules",
+      "concern_ids": []
+    },
+    {
+      "case_id": "stream_17",
+      "family": "cross_transaction",
+      "scenario_type": "legitimate_lookalike",
+      "prefix": 2,
+      "final_prefix": true,
+      "baseline": "latest_message_rules",
+      "expected_responses": [
+        "explain",
+        "clarify"
+      ],
+      "response": "explain",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.068,
+      "engine": "local_rules",
+      "concern_ids": []
+    },
+    {
+      "case_id": "stream_17",
+      "family": "cross_transaction",
+      "scenario_type": "legitimate_lookalike",
+      "prefix": 2,
+      "final_prefix": true,
+      "baseline": "available_context_rules",
+      "expected_responses": [
+        "explain",
+        "clarify"
+      ],
+      "response": "explain",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.043,
+      "engine": "local_rules",
+      "concern_ids": []
+    },
+    {
+      "case_id": "stream_18",
+      "family": "prompt_injection",
+      "scenario_type": "concerning",
+      "prefix": 1,
+      "final_prefix": false,
+      "baseline": "latest_message_rules",
+      "expected_responses": [
+        "explain",
+        "clarify"
+      ],
+      "response": "explain",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.025,
+      "engine": "local_rules",
+      "concern_ids": []
+    },
+    {
+      "case_id": "stream_18",
+      "family": "prompt_injection",
+      "scenario_type": "concerning",
+      "prefix": 1,
+      "final_prefix": false,
+      "baseline": "available_context_rules",
+      "expected_responses": [
+        "explain",
+        "clarify"
+      ],
+      "response": "explain",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.023,
+      "engine": "local_rules",
+      "concern_ids": []
+    },
+    {
+      "case_id": "stream_18",
+      "family": "prompt_injection",
+      "scenario_type": "concerning",
+      "prefix": 2,
+      "final_prefix": true,
+      "baseline": "latest_message_rules",
+      "expected_responses": [
+        "warn"
+      ],
+      "response": "warn",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.022,
+      "engine": "local_rules",
+      "concern_ids": [
+        "credential_request"
+      ]
+    },
+    {
+      "case_id": "stream_18",
+      "family": "prompt_injection",
+      "scenario_type": "concerning",
+      "prefix": 2,
+      "final_prefix": true,
+      "baseline": "available_context_rules",
+      "expected_responses": [
+        "warn"
+      ],
+      "response": "warn",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.041,
+      "engine": "local_rules",
+      "concern_ids": [
+        "credential_request"
+      ]
+    },
+    {
+      "case_id": "stream_19",
+      "family": "language_variation",
+      "scenario_type": "concerning",
+      "prefix": 1,
+      "final_prefix": false,
+      "baseline": "latest_message_rules",
+      "expected_responses": [
+        "explain",
+        "clarify"
+      ],
+      "response": "clarify",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.014,
+      "engine": "local_rules",
+      "concern_ids": []
+    },
+    {
+      "case_id": "stream_19",
+      "family": "language_variation",
+      "scenario_type": "concerning",
+      "prefix": 1,
+      "final_prefix": false,
+      "baseline": "available_context_rules",
+      "expected_responses": [
+        "explain",
+        "clarify"
+      ],
+      "response": "clarify",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.012,
+      "engine": "local_rules",
+      "concern_ids": []
+    },
+    {
+      "case_id": "stream_19",
+      "family": "language_variation",
+      "scenario_type": "concerning",
+      "prefix": 2,
+      "final_prefix": true,
+      "baseline": "latest_message_rules",
+      "expected_responses": [
+        "warn"
+      ],
+      "response": "warn",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.017,
+      "engine": "local_rules",
+      "concern_ids": [
+        "credential_request"
+      ]
+    },
+    {
+      "case_id": "stream_19",
+      "family": "language_variation",
+      "scenario_type": "concerning",
+      "prefix": 2,
+      "final_prefix": true,
+      "baseline": "available_context_rules",
+      "expected_responses": [
+        "warn"
+      ],
+      "response": "warn",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.025,
+      "engine": "local_rules",
+      "concern_ids": [
+        "credential_request"
+      ]
+    },
+    {
+      "case_id": "stream_20",
+      "family": "language_variation",
+      "scenario_type": "legitimate_lookalike",
+      "prefix": 1,
+      "final_prefix": false,
+      "baseline": "latest_message_rules",
+      "expected_responses": [
+        "explain",
+        "clarify"
+      ],
+      "response": "explain",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.013,
+      "engine": "local_rules",
+      "concern_ids": []
+    },
+    {
+      "case_id": "stream_20",
+      "family": "language_variation",
+      "scenario_type": "legitimate_lookalike",
+      "prefix": 1,
+      "final_prefix": false,
+      "baseline": "available_context_rules",
+      "expected_responses": [
+        "explain",
+        "clarify"
+      ],
+      "response": "explain",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.013,
+      "engine": "local_rules",
+      "concern_ids": []
+    },
+    {
+      "case_id": "stream_20",
+      "family": "language_variation",
+      "scenario_type": "legitimate_lookalike",
+      "prefix": 2,
+      "final_prefix": true,
+      "baseline": "latest_message_rules",
+      "expected_responses": [
+        "explain",
+        "clarify"
+      ],
+      "response": "clarify",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.02,
+      "engine": "local_rules",
+      "concern_ids": []
+    },
+    {
+      "case_id": "stream_20",
+      "family": "language_variation",
+      "scenario_type": "legitimate_lookalike",
+      "prefix": 2,
+      "final_prefix": true,
+      "baseline": "available_context_rules",
+      "expected_responses": [
+        "explain",
+        "clarify"
+      ],
+      "response": "clarify",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.028,
+      "engine": "local_rules",
+      "concern_ids": []
+    },
+    {
+      "case_id": "stream_21",
+      "family": "repeated_request",
+      "scenario_type": "concerning",
+      "prefix": 1,
+      "final_prefix": false,
+      "baseline": "latest_message_rules",
+      "expected_responses": [
+        "warn"
+      ],
+      "response": "warn",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.017,
+      "engine": "local_rules",
+      "concern_ids": [
+        "credential_request"
+      ]
+    },
+    {
+      "case_id": "stream_21",
+      "family": "repeated_request",
+      "scenario_type": "concerning",
+      "prefix": 1,
+      "final_prefix": false,
+      "baseline": "available_context_rules",
+      "expected_responses": [
+        "warn"
+      ],
+      "response": "warn",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.019,
+      "engine": "local_rules",
+      "concern_ids": [
+        "credential_request"
+      ]
+    },
+    {
+      "case_id": "stream_21",
+      "family": "repeated_request",
+      "scenario_type": "concerning",
+      "prefix": 2,
+      "final_prefix": false,
+      "baseline": "latest_message_rules",
+      "expected_responses": [
+        "warn"
+      ],
+      "response": "warn",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.016,
+      "engine": "local_rules",
+      "concern_ids": [
+        "credential_request"
+      ]
+    },
+    {
+      "case_id": "stream_21",
+      "family": "repeated_request",
+      "scenario_type": "concerning",
+      "prefix": 2,
+      "final_prefix": false,
+      "baseline": "available_context_rules",
+      "expected_responses": [
+        "warn"
+      ],
+      "response": "warn",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.053,
+      "engine": "local_rules",
+      "concern_ids": [
+        "credential_request"
+      ]
+    },
+    {
+      "case_id": "stream_21",
+      "family": "repeated_request",
+      "scenario_type": "concerning",
+      "prefix": 3,
+      "final_prefix": true,
+      "baseline": "latest_message_rules",
+      "expected_responses": [
+        "warn"
+      ],
+      "response": "warn",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.023,
+      "engine": "local_rules",
+      "concern_ids": [
+        "advance_payment"
+      ]
+    },
+    {
+      "case_id": "stream_21",
+      "family": "repeated_request",
+      "scenario_type": "concerning",
+      "prefix": 3,
+      "final_prefix": true,
+      "baseline": "available_context_rules",
+      "expected_responses": [
+        "warn"
+      ],
+      "response": "warn",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.039,
+      "engine": "local_rules",
+      "concern_ids": [
+        "credential_request",
+        "advance_payment"
+      ]
+    },
+    {
+      "case_id": "stream_22",
+      "family": "reported_speech",
+      "scenario_type": "concerning",
+      "prefix": 1,
+      "final_prefix": false,
+      "baseline": "latest_message_rules",
+      "expected_responses": [
+        "warn"
+      ],
+      "response": "warn",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.028,
+      "engine": "local_rules",
+      "concern_ids": [
+        "credential_request"
+      ]
+    },
+    {
+      "case_id": "stream_22",
+      "family": "reported_speech",
+      "scenario_type": "concerning",
+      "prefix": 1,
+      "final_prefix": false,
+      "baseline": "available_context_rules",
+      "expected_responses": [
+        "warn"
+      ],
+      "response": "warn",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.027,
+      "engine": "local_rules",
+      "concern_ids": [
+        "credential_request"
+      ]
+    },
+    {
+      "case_id": "stream_22",
+      "family": "reported_speech",
+      "scenario_type": "concerning",
+      "prefix": 2,
+      "final_prefix": true,
+      "baseline": "latest_message_rules",
+      "expected_responses": [
+        "warn"
+      ],
+      "response": "warn",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.021,
+      "engine": "local_rules",
+      "concern_ids": [
+        "credential_request"
+      ]
+    },
+    {
+      "case_id": "stream_22",
+      "family": "reported_speech",
+      "scenario_type": "concerning",
+      "prefix": 2,
+      "final_prefix": true,
+      "baseline": "available_context_rules",
+      "expected_responses": [
+        "warn"
+      ],
+      "response": "warn",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.039,
+      "engine": "local_rules",
+      "concern_ids": [
+        "credential_request"
+      ]
+    },
+    {
+      "case_id": "stream_23",
+      "family": "uncertain_chronology",
+      "scenario_type": "unresolved",
+      "prefix": 1,
+      "final_prefix": false,
+      "baseline": "latest_message_rules",
+      "expected_responses": [
+        "explain",
+        "clarify"
+      ],
+      "response": "explain",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.011,
+      "engine": "local_rules",
+      "concern_ids": []
+    },
+    {
+      "case_id": "stream_23",
+      "family": "uncertain_chronology",
+      "scenario_type": "unresolved",
+      "prefix": 1,
+      "final_prefix": false,
+      "baseline": "available_context_rules",
+      "expected_responses": [
+        "explain",
+        "clarify"
+      ],
+      "response": "explain",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.01,
+      "engine": "local_rules",
+      "concern_ids": []
+    },
+    {
+      "case_id": "stream_23",
+      "family": "uncertain_chronology",
+      "scenario_type": "unresolved",
+      "prefix": 2,
+      "final_prefix": true,
+      "baseline": "latest_message_rules",
+      "expected_responses": [
+        "explain",
+        "clarify"
+      ],
+      "response": "explain",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.024,
+      "engine": "local_rules",
+      "concern_ids": []
+    },
+    {
+      "case_id": "stream_23",
+      "family": "uncertain_chronology",
+      "scenario_type": "unresolved",
+      "prefix": 2,
+      "final_prefix": true,
+      "baseline": "available_context_rules",
+      "expected_responses": [
+        "explain",
+        "clarify"
+      ],
+      "response": "explain",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.028,
+      "engine": "local_rules",
+      "concern_ids": []
+    },
+    {
+      "case_id": "stream_24",
+      "family": "job_offer",
+      "scenario_type": "concerning",
+      "prefix": 1,
+      "final_prefix": false,
+      "baseline": "latest_message_rules",
+      "expected_responses": [
+        "explain",
+        "clarify"
+      ],
+      "response": "explain",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.019,
+      "engine": "local_rules",
+      "concern_ids": []
+    },
+    {
+      "case_id": "stream_24",
+      "family": "job_offer",
+      "scenario_type": "concerning",
+      "prefix": 1,
+      "final_prefix": false,
+      "baseline": "available_context_rules",
+      "expected_responses": [
+        "explain",
+        "clarify"
+      ],
+      "response": "explain",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.057,
+      "engine": "local_rules",
+      "concern_ids": []
+    },
+    {
+      "case_id": "stream_24",
+      "family": "job_offer",
+      "scenario_type": "concerning",
+      "prefix": 2,
+      "final_prefix": true,
+      "baseline": "latest_message_rules",
+      "expected_responses": [
+        "warn",
+        "clarify"
+      ],
+      "response": "clarify",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.033,
+      "engine": "local_rules",
+      "concern_ids": []
+    },
+    {
+      "case_id": "stream_24",
+      "family": "job_offer",
+      "scenario_type": "concerning",
+      "prefix": 2,
+      "final_prefix": true,
+      "baseline": "available_context_rules",
+      "expected_responses": [
+        "warn",
+        "clarify"
+      ],
+      "response": "clarify",
+      "matches_engineering_expectation": true,
+      "evidence_errors": [],
+      "latency_ms": 0.048,
+      "engine": "local_rules",
+      "concern_ids": []
+    }
+  ]
+}

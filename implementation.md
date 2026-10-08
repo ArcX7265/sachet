@@ -1,7 +1,7 @@
 # Sachet — Detailed Implementation Plan
 
 **Document date:** 29 September 2026  
-**Status:** Build specification; implementation and validation are pending.  
+**Status:** Full target specification. A local application is now implemented; see `docs/build-status.md` for completed checks and remaining validation gates.  
 **Project:** IIT Delhi / RAKSHAM, Statement 2 — AI-driven scam pattern recognition.  
 **Initial language:** English.  
 **Model budget:** Free-tier Groq and/or Gemini APIs only. No Ollama dependency.  

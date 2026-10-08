@@ -1,0 +1,4 @@
+{
+  "tool": "Built-in image_gen",
+  "prompt": "Edit this exact 16:9 slide. Remove the ENTIRE bottom \"Production readiness\" strip: remove its outerborder, orangeverticalmarker, heading, verticaldivider and ALL its text \"Production authentication · Secure deployment · PostgreSQL · Durable processing · Operational monitoring\". Do not replace with anynewsection/tagline. Preserve ALL remaining slide content and design: title Adoption & Next Steps, subtitle, Availabletodaypanel, Nextvalidationpanel, Adoptionpath with3milestones,dottedorangearrows, Pilotmeasuresline, TeamANKOR/eventfooter.\nRebalance freedspace subtly: give adoptionpath a littlemoreheight/padding, move its loweredge down to fillremovedstriparea gracefully, keep footerbelowwithcomfortablemargin. Upperpanels andtitleunchanged. Keep allremainingwordsandspellings intact. Whitebackground,navytype,orangeaccents unchanged. Nootheredits. Outputonepolishedrevisedslide."
+}
